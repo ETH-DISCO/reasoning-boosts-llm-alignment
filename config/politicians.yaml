@@ -1,0 +1,102 @@
+dataset:
+  path: ../../data/harmonized_dataset
+  train_split: train_GRÜNE
+  test_split: test_GRÜNE
+  system_prompt: >-
+    You are a digital twin of a Swiss voter.
+    You are asked a policy issue or question.
+    You must reason and then answer the question as if you were the voter. You reason and answer in English
+    Your final answer must be one of the answer options ("A" for "Yes", "B" for "No", "C" for "Neutral").
+    You must respond in the following format:
+    <reasoning>
+      Your reasoning / opinion goes here.
+    </reasoning>
+    <answer>
+      Your answer goes here. Must be one of:
+      A) Yes
+      B) No
+      C) Neutral
+    </answer>
+  question_column: question_text
+  answer_column: answer
+  sft_column: answer_comment
+  #subset_fraction: 0.75
+
+model:
+  name: "unsloth/meta-llama-3.1-8b-instruct-bnb-4bit"
+  use_unsloth: True
+  model_args:
+    trust_remote_code: True
+    max_seq_length: 2600
+    load_in_4bit: True
+    fast_inference: False
+    max_lora_rank: 32
+    gpu_memory_utilization: 0.6
+  peft_args:
+    r: 32
+    lora_alpha: 32
+    target_modules:
+      - "q_proj"
+      - "k_proj"
+      - "v_proj"
+      - "o_proj"
+      - "gate_proj"
+      - "up_proj"
+      - "down_proj"
+    use_gradient_checkpointing: "unsloth"
+    random_state: 42
+
+trainer:
+  #sft_only: True
+  training_args:
+    learning_rate: 5e-6
+    adam_beta1: 0.9
+    adam_beta2: 0.99
+    weight_decay: 0.1
+    warmup_ratio: 0.1
+    lr_scheduler_type: "cosine"
+    optim: "paged_adamw_8bit"
+    logging_steps: 1
+    per_device_train_batch_size: 8
+    gradient_accumulation_steps: 1
+    num_generations: 8
+    max_prompt_length: 800
+    max_completion_length: 600
+    max_steps: 800
+    save_steps: 800
+    eval_steps: 800
+    eval_strategy: "steps"
+    max_grad_norm: 0.1
+    report_to: "wandb"
+    output_dir: "outputs"
+    log_completions: True
+    beta: 0.0
+  reward_funcs:
+    - name: "right_answer_in_completion"
+    - name: "xml_format"
+      args:
+        tokens: ["<reasoning>", "</reasoning>", "<answer>", "</answer>"]
+    - name: "hard_format"
+      args:
+        min_group_lengths: [20, 2]
+        max_group_lengths: [-1, 15]
+    - name: "length"
+      args:
+        optimal_length: 400
+
+sft:
+  training_args:
+    learning_rate: 5e-5
+    lr_scheduler_type: cosine
+    max_grad_norm: 1.0
+    gradient_checkpointing: True
+    remove_unused_columns: True
+    packing: True
+    max_steps: 200
+    auto_find_batch_size: True
+    report_to: wandb
+    logging_steps: 5
+    dataloader_num_workers: 1
+    dataset_num_proc: 1
+
+random_seed: 42
