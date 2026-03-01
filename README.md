@@ -1,17 +1,20 @@
+<div align="center">
+
 # Reasoning Boosts Opinion Alignment in LLMs
 
-**Frédéric Berdoz, Yann Billeter, Yann Vonlanthen, Roger Wattenhofer**
-*(Authors in alphabetical order)*
+**Frédéric Berdoz · Yann Billeter · Yann Vonlanthen · Roger Wattenhofer**
+<p><sub>(Authors in alphabetical order, see manuscript for contribution details)</sub></p>
 
+<!--[![arXiv](https://img.shields.io/badge/arXiv-2510.02187-b31b1b.svg)](https://arxiv.org/abs/2510.02187) -->
+<!--[![Demo](https://img.shields.io/badge/Demo-Sample%20Page-blue.svg)](https://lucala.github.io/dac-se1/) -->
 [![Paper](https://img.shields.io/badge/Paper-OpenReview-blue)](https://openreview.net/forum?id=mdunHhVDPz)
+[![Data](https://img.shields.io/badge/Data-HuggingFace-yellow)]([https://openreview.net/forum?id=mdunHhVDPz](https://huggingface.co/datasets/disco-eth/Reasoning-Boosts-Opinion-Alignment-in-LLMs))
 
-> **ICLR 2026 Poster** | January 2026
+Accepted at ICLR 2026 🎉
 
-Official code repository for the paper *"Reasoning Boosts Opinion Alignment in LLMs"*.
+Opinion modeling aims to capture individual or group political preferences, enabling applications such as digital democracies, where models could help shape fairer and more popular policies. Given their versatility, strong generalization capabilities, and demonstrated success across diverse text-to-text applications, large language models (LLMs) are natural candidates for this task. However, due to their statistical nature and limited causal understanding, they tend to produce biased opinions when prompted naively. In this work, we study whether reasoning can improve opinion alignment. Motivated by the recent advancement in mathematical reasoning enabled by reinforcement learning (RL), we train models to produce profile-consistent answers through structured reasoning. We evaluate our approach on three datasets covering U.S., European, and Swiss politics. Results indicate that reasoning enhances opinion modeling and is competitive with strong baselines, but does not fully remove bias, highlighting the need for additional mechanisms to build faithful political digital twins using LLMs. By releasing both our method and datasets, we establish a solid baseline to support future research on LLM opinion alignment.
 
-## Abstract
-
-Using reasoning and reinforcement learning, we improve LLM opinion modeling, highlight remaining biases, and provide a baseline for future research. This research investigates whether structured reasoning enhances LLM opinion modeling through reinforcement learning. We evaluate our approach using datasets covering U.S., European, and Swiss politics. While reasoning improves opinion alignment competitively, residual biases persist, suggesting the necessity of additional mechanisms for building faithful political digital twins using LLMs.
+</div>
 
 ## Project Structure
 
@@ -105,8 +108,7 @@ If you use this code in your research, please cite our paper:
     berdoz2026reasoning,
     title={Reasoning Boosts Opinion Alignment in {LLM}s},
     author={Fr{\'e}d{\'e}ric Berdoz and Yann Billeter and Yann Vonlanthen and Roger Wattenhofer},
-    booktitle={The Thirteenth International Conference on Learning Representations},
-    year={2026},
-    url={https://openreview.net/forum?id=mdunHhVDPz}
+    booktitle={The Thirteenth International Conference on Learning Representations (ICLR)},
+    year={2026}
 }
 ```
