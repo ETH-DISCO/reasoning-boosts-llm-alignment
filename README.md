@@ -5,10 +5,10 @@
 **Frédéric Berdoz · Yann Billeter · Yann Vonlanthen · Roger Wattenhofer**
 <p><sub>(Authors in alphabetical order, see manuscript for contribution details)</sub></p>
 
-<!--[![arXiv](https://img.shields.io/badge/arXiv-2510.02187-b31b1b.svg)](https://arxiv.org/abs/2510.02187) -->
-<!--[![Demo](https://img.shields.io/badge/Demo-Sample%20Page-blue.svg)](https://lucala.github.io/dac-se1/) -->
+[![arXiv](https://img.shields.io/badge/arXiv-2603.01214-b31b1b.svg)](https://arxiv.org/abs/2603.01214)
 [![Paper](https://img.shields.io/badge/Paper-OpenReview-blue)](https://openreview.net/forum?id=mdunHhVDPz)
-[![Data](https://img.shields.io/badge/Data-HuggingFace-yellow)]([https://openreview.net/forum?id=mdunHhVDPz](https://huggingface.co/datasets/disco-eth/Reasoning-Boosts-Opinion-Alignment-in-LLMs))
+[![Data](https://img.shields.io/badge/Data-HuggingFace-yellow)](https://huggingface.co/datasets/disco-eth/Reasoning-Boosts-Opinion-Alignment-in-LLMs)
+[![Project Page](https://img.shields.io/badge/Project-Page-green)](https://fberdoz.github.io/projects/reasoning-boosts-alignment/)
 
 Accepted at ICLR 2026 🎉
 
